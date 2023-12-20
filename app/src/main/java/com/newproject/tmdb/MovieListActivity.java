@@ -52,7 +52,7 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 
         ConfigureRecyclerView();
         ObserveAnyChange();
-        searchMovieApi("and", 1);
+        searchMovieApi("war", 1);
 
     }
 
