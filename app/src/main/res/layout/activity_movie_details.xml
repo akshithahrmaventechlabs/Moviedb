@@ -17,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/detailsLayout" />
+        app:layout_constraintBottom_toTopOf="@+id/detailsLayout"
+        />
 
     <LinearLayout
         android:id="@+id/detailsLayout"
@@ -36,12 +37,13 @@
             android:id="@+id/movieTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:text="TITLE:"
             android:textStyle="bold"
             android:paddingTop="16dp"
             android:layout_marginStart="30dp"
-            android:paddingBottom="8dp" />
+            android:paddingBottom="8dp"
+            />
 
         <TextView
             android:id="@+id/movieDurationTextView"
@@ -63,6 +65,15 @@
             android:text="LANGUAGE:"
             android:layout_marginStart="30dp"/>
 
+        <TextView
+            android:id="@+id/movieOverviewTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:textSize="22sp"
+            android:text="OVERVIEW:"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"/>
 
 
 
@@ -82,8 +93,7 @@
         android:id="@+id/rating_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
-        android:background="@drawable/shadow_back"
+        android:layout_marginTop="536dp"
         android:backgroundTint="@color/white"
         android:numStars="5"
         android:progressBackgroundTint="@color/black"
@@ -91,6 +101,7 @@
         android:scaleY="0.75"
         android:stepSize="0.5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

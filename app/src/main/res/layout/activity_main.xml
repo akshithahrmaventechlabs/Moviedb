@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MovieListActivity">
+    tools:context=".MovieListActivity"
+    >
 
   <!-- Movie Title -->
 
@@ -35,9 +36,10 @@
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight"
         android:layout_marginTop="60dp"
         android:autofillHints="Looking for a movie....?"
+      android:background="@color/search"
         >
       <SearchView
           android:layout_width="match_parent"

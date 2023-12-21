@@ -1,6 +1,7 @@
 package com.newproject.tmdb.adapters;
 
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -8,13 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.newproject.tmdb.MovieGridAdapter;
 import com.newproject.tmdb.R;
+
+import java.util.ArrayList;
 
 public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     TextView title, movie_category, duration;
-    ImageView imageView;
-    RatingBar ratingBar;
+    ImageView imageView,starIcon;
+    TextView numericRating;
 
 //    Click Listener
     OnMovieListener onMovieListener;
@@ -26,11 +30,15 @@ public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnC
         this.onMovieListener=onMovieListener;
 
         title = itemView.findViewById(R.id.movie_title);
-        movie_category = itemView.findViewById(R.id.movie_category);
-        duration = itemView.findViewById(R.id.movie_duration);
+//        movie_category = itemView.findViewById(R.id.movie_category);
+//        duration = itemView.findViewById(R.id.movie_duration);
 
         imageView = itemView.findViewById(R.id.movie_img);
-        ratingBar = itemView.findViewById(R.id.rating_bar);
+        numericRating = itemView.findViewById(R.id.numeric_rating); // Add this line for numeric rating
+        starIcon = itemView.findViewById(R.id.star_icon);
+
+
+
 
         itemView.setOnClickListener(this);
     }

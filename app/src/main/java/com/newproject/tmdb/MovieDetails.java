@@ -29,24 +29,29 @@ public class MovieDetails extends AppCompatActivity {
         movieDurationTextView = findViewById(R.id.movieDurationTextView);
         movieLanguageTextView = findViewById(R.id.movieLanguageTextView);
 //        movieRatingTextView = findViewById(R.id.movieRatingTextView);
-//        movieOverviewTextView = findViewById(R.id.movieOverviewTextView);
+        movieOverviewTextView = findViewById(R.id.movieOverviewTextView);
         movieReleaseDateTextView = findViewById(R.id.movieReleaseDateTextView);
 //        movieVoteAverageTextView = findViewById(R.id.movieVoteAverageTextView);
+
 
         // Get data from Intent
         getDataFromIntent();
     }
 
+
+
+
     private void getDataFromIntent() {
         if (getIntent().hasExtra("movie")) {
             MovieModel movieModel = getIntent().getParcelableExtra("movie");
 
+
             // Set values to views
-            movieTitleTextView.setText(movieModel.getTitle());
-            movieDurationTextView.setText(String.valueOf(movieModel.getRuntime()));
-            movieLanguageTextView.setText(movieModel.getOriginal_language());
-//            movieOverviewTextView.setText(movieModel.getMovie_overview());
-            movieReleaseDateTextView.setText(movieModel.getRelease_date());
+            movieTitleTextView.setText("TITLE:"+" "+ movieModel.getTitle());
+            movieDurationTextView.setText("DURATION:"+" " +String.valueOf(movieModel.getRuntime())+""+"-MINUTES");
+            movieLanguageTextView.setText("LANGUAGE:"+" " +movieModel.getOriginal_language());
+            movieOverviewTextView.setText("OVERVIEW:"+" " +movieModel.getMovie_overview());
+            movieReleaseDateTextView.setText("RELEASE_DATE:"+" " +movieModel.getRelease_date());
             ratingBar.setRating(movieModel.getVote_average() / 2);
 
             // Load image using Glide
@@ -55,6 +60,8 @@ public class MovieDetails extends AppCompatActivity {
                     .into(imageViewDetails);
         }
     }
+
+
 }
 
 

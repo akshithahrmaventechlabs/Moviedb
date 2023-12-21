@@ -42,25 +42,34 @@ public class MovieRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHol
                     movieViewHolder.title.setText(currentMovie.getTitle());
                 }
 
-                // Set release date
-                if (movieViewHolder.movie_category != null) {
-                    movieViewHolder.movie_category.setText("" + currentMovie.getRelease_date());
-                }
+//                // Set release date
+//                if (movieViewHolder.movie_category != null) {
+//                    movieViewHolder.movie_category.setText("" + currentMovie.getRelease_date());
+//                }
+//
+//                // Set duration
+//                if (movieViewHolder.duration != null) {
+//                    movieViewHolder.duration.setText(" " + currentMovie.getOriginal_language());
+//                }
 
-                // Set duration
-                if (movieViewHolder.duration != null) {
-                    movieViewHolder.duration.setText(" " + currentMovie.getOriginal_language());
+                // Set numeric rating
+                if (movieViewHolder.numericRating != null) {
+                    movieViewHolder.numericRating.setText(" " + currentMovie.getVote_average());
                 }
-
-                // Set rating
-                if (movieViewHolder.ratingBar != null) {
-                    movieViewHolder.ratingBar.setRating((currentMovie.getVote_average()) / 2);
+                // Set star icon visibility based on rating
+                if (movieViewHolder.starIcon != null) {
+                    float rating = currentMovie.getVote_average();
+                    if (rating >= 1.0) {
+                        movieViewHolder.starIcon.setVisibility(View.VISIBLE);
+                    } else {
+                        movieViewHolder.starIcon.setVisibility(View.GONE);
+                    }
                 }
             }
             // Load image using Glide
             if (movieViewHolder.imageView != null) {
                 Glide.with(movieViewHolder.itemView.getContext())
-                        .load("https://image.tmdb.org/t/p/w500/" + currentMovie.getPoster_path())
+                        .load("https://image.tmdb.org/t/p/w500/" + currentMovie.getbackdrop_path())
                         .into(movieViewHolder.imageView);
             }
         }

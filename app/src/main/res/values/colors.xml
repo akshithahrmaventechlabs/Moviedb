@@ -5,5 +5,6 @@
     <color name="colorPrimary">#673AB7</color>
     <color name="colorPrimaryDark">#2D1951</color>
     <color name="colorAccent">#00BCD4</color>
+    <color name="search">#BEC2C3</color>
 
 </resources>

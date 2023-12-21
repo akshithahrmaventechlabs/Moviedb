@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -41,6 +42,8 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     private MovieRecyclerView movieRecyclerViewAdapter;
 
 
+    GridView gridView;
+
 
 //    ViewModel
     private MovieListViewModel movieListViewModel;
@@ -50,6 +53,7 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
         //Toolbar
@@ -156,81 +160,13 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 
     }
 
-//    private void GetRetrofitResponse() {
-//        MovieApi movieApi = Service.getMovieApi();
-//
-//        Call<MovieSearchResponse> responseCall = movieApi
-//                .searchMovie(
-//                        Credentials.API_KEY,
-//                        "Action",
-//                        "1");
-//
-//        responseCall.enqueue(new Callback<MovieSearchResponse>() {
-//            @Override
-//            public void onResponse(Call<MovieSearchResponse> call, Response<MovieSearchResponse> response) {
-//                if (response.code() == 200 ){
-//                    Log.v("Tag", "the response" + response.body().toString());
-//
-//                    List<MovieModel> movies = new ArrayList<>(response.body().getMovies());
-//
-//                    for (MovieModel movie: movies){
-//                        Log.v("Tag", "The release date" + movie.getRelease_date());
-//
-//                    }
-//                }
-//                else {
-//                    try {
-//                        Log.v("Tag", "Error" + response.errorBody().string());
-//                    } catch (IOException e) {
-//                        throw new RuntimeException(e);
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<MovieSearchResponse> call, Throwable t) {
-//
-//            }
-//        });
-//
-//
-//
-//    }
-//
-//    private void GetRetrofitResponseAccordingToID(){
-//        MovieApi movieApi = Service.getMovieApi();
-//        Call<MovieModel> responseCall = movieApi
-//                .getMovie(
-//                        343611,
-//                        Credentials.API_KEY);
-//
-//        responseCall.enqueue(new Callback<MovieModel>() {
-//            @Override
-//            public void onResponse(Call<MovieModel> call, Response<MovieModel> response) {
-//
-//
-//                if(response.code() == 200){
-//                    MovieModel movie = response.body();
-//                    Log.v("Tag", "The Response " + movie.getTitle());
-//                }
-//
-//                else{
-//                    try {
-//                        Log.v("Tag", "error" + response.errorBody().string());
-//                    } catch (IOException e) {
-//                        throw new RuntimeException(e);
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<MovieModel> call, Throwable t) {
-//
-//            }
-//        });
-//    }
+
 
 }
 
 
+
+//    MovieGridAdapter movieGridAdapter = new MovieGridAdapter(this, new ArrayList<>());
+//    GridView gridView = findViewById(R.id.grid);
+//           gridView.setAdapter(movieGridAdapter);
 
