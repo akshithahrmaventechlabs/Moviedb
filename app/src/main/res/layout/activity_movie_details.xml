@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MovieDetails">
+
+    <ImageView
+        android:id="@+id/imageView_details"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_weight="3"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/detailsLayout" />
+
+    <LinearLayout
+        android:id="@+id/detailsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="6dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Other movie details below the shadow -->
+
+        <TextView
+            android:id="@+id/movieTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="TITLE:"
+            android:textStyle="bold"
+            android:paddingTop="16dp"
+            android:layout_marginStart="30dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/movieDurationTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:textSize="22sp"
+            android:text="DURATION:"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"/>
+
+        <TextView
+            android:id="@+id/movieLanguageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:text="LANGUAGE:"
+            android:layout_marginStart="30dp"/>
+
+
+
+
+        <TextView
+            android:id="@+id/movieReleaseDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:textSize="22sp"
+            android:text="RELEASE DATE:"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"/>
+
+    </LinearLayout>
+
+    <RatingBar
+        android:id="@+id/rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:background="@drawable/shadow_back"
+        android:backgroundTint="@color/white"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/black"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

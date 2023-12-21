@@ -26,13 +26,13 @@ public class MovieRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_list_item,
-                parent,false);
+                parent, false);
         return new MovieViewHolder(view, onMovieListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof MovieViewHolder){
+        if (holder instanceof MovieViewHolder) {
             MovieModel currentMovie = mMovies.get(position);
             MovieViewHolder movieViewHolder = (MovieViewHolder) holder;
 
@@ -49,7 +49,7 @@ public class MovieRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHol
 
                 // Set duration
                 if (movieViewHolder.duration != null) {
-                    movieViewHolder.duration.setText(" " + currentMovie.getMovie_id());
+                    movieViewHolder.duration.setText(" " + currentMovie.getOriginal_language());
                 }
 
                 // Set rating
@@ -70,7 +70,7 @@ public class MovieRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public int getItemCount() {
 
-        if (mMovies != null){
+        if (mMovies != null) {
             return mMovies.size();
         }
         return 0;
@@ -84,4 +84,14 @@ public class MovieRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHol
         this.mMovies = mMovies;
         notifyDataSetChanged();
     }
+
+    public MovieModel getSelectedMovie(int position) {
+        if (mMovies != null) {
+            if (mMovies.size() > 0) {
+                return mMovies.get(position);
+            }
+        }
+        return null;
+    }
+
 }

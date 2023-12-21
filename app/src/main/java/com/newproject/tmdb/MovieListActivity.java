@@ -1,16 +1,21 @@
 package com.newproject.tmdb;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.newproject.tmdb.adapters.MovieRecyclerView;
 import com.newproject.tmdb.adapters.OnMovieListener;
@@ -45,6 +50,18 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //Toolbar
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        //searchbar
+        SetupSearchView();
+
+
+
         recyclerView = findViewById(R.id.recyclerView);
 
 
@@ -54,7 +71,9 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         ObserveAnyChange();
         searchMovieApi("war", 1);
 
+
     }
+
 
     //Observing any data change
     private void ObserveAnyChange(){
@@ -82,15 +101,58 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 
         recyclerView.setAdapter(movieRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+
+        //RecyclerView Pagination loading next page of api response
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+        if(!recyclerView.canScrollVertically(1)){
+    //here we need to disply the next search results
+
+            movieListViewModel.searchNextPage();
+
+}
+
+            }
+        });
+
+
     }
 
     @Override
     public void onMovieClick(int position) {
+        Toast.makeText(this, "The Position "  +position, Toast.LENGTH_SHORT).show();
 
+      Intent intent=new Intent(this,MovieDetails.class);
+      intent.putExtra("movie",movieRecyclerViewAdapter.getSelectedMovie(position));
+      startActivity(intent);
     }
 
     @Override
     public void onCategoryClick(String category) {
+
+
+    }
+    private void SetupSearchView() {
+        final SearchView searchView=findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                movieListViewModel.searchMovieApi(
+                          query,
+                        1
+                );
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
 
     }
 
@@ -169,3 +231,6 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 //    }
 
 }
+
+
+

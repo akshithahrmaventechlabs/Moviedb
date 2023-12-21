@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class MovieModel implements Parcelable {
 
-//    Model class for movies
+    //    Model class for movies
     private String title;
     private String poster_path;
     private String release_date;
@@ -21,9 +21,9 @@ public class MovieModel implements Parcelable {
     private int runtime;
     private String original_language;
 
-//    Constructor
+    //    Constructor
     public MovieModel(String title, String poster_path, String release_date, int movie_id, float vote_average, String movie_overview,
-         String original_language, int runtime) {
+                      String original_language, int runtime) {
         this.title = title;
         this.poster_path = poster_path;
         this.release_date = release_date;
@@ -82,7 +82,9 @@ public class MovieModel implements Parcelable {
         return movie_overview;
     }
 
-    public int getRuntime() {return runtime;}
+    public int getRuntime() {
+        return runtime;
+    }
 
     public String getOriginal_language() {
         return original_language;
@@ -119,4 +121,5 @@ public class MovieModel implements Parcelable {
                 ", original_language='" + original_language + '\'' +
                 '}';
     }
+
 }

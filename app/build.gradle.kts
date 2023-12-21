@@ -51,4 +51,7 @@ dependencies {
 
 //    Glide library
     implementation("com.github.bumptech.glide:glide:4.12.0")
+
+    //material Design
+    implementation("com.google.android.material:material:1.11.0")
 }
