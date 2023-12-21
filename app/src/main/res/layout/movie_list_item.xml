@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:background="@color/black">
 
+
     <!-- CardView with a background color -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -89,7 +90,7 @@
                     android:layout_marginTop="8dp"
                     android:scaleX="0.45"
                     android:scaleY="0.45"
-                    android:layout_marginLeft="-50dp"/>
+                    android:layout_marginLeft="-70dp"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

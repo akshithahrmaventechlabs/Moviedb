@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
+
+
     <TextView
         android:id="@+id/textViewMovie"
         android:layout_width="wrap_content"
