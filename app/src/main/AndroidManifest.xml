@@ -15,22 +15,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TMDB"
         tools:targetApi="31">
+
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
+
         <activity
             android:name=".MovieDetails"
             android:exported="true"> <!-- Change to true if you intend to launch MovieDetails from outside the app -->
         </activity>
+
         <activity
             android:name=".MovieListActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <activity
+            android:name=".PopularActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>

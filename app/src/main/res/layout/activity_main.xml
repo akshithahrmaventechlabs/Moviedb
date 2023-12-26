@@ -30,27 +30,27 @@
       android:layout_marginRight="170dp"/>
 
 
+  <!-- Filter Buttons -->
   <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:layout_marginTop="60dp"
+      android:autofillHints="Looking for a movie....?"
+      android:background="@color/search"
+      android:theme="@style/ThemeOverlay.AppCompat.Light"
+      app:layout_constraintTop_toTopOf="parent"
+      app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight"
-        android:layout_marginTop="60dp"
-        android:autofillHints="Looking for a movie....?"
-      android:background="@color/search"
-        >
-      <SearchView
-          android:layout_width="match_parent"
-          android:layout_height="?attr/actionBarSize"
-          android:id="@+id/search_view"
         android:queryHint="Looking for a movie....?"
-        />
+        android:hint="Looking for a movie....?"/>
 
-    </androidx.appcompat.widget.Toolbar>
+  </androidx.appcompat.widget.Toolbar>
 
-  <!-- Filter Buttons -->
   <LinearLayout
       android:id="@+id/filter_buttons"
       android:layout_width="match_parent"
@@ -128,7 +128,8 @@
           android:text="Popular"
           android:textStyle="bold"
           android:textColor="@android:color/black"
-          android:layout_marginTop="4dp"/>
+          android:layout_marginTop="4dp"
+          android:onClick="onPopularButtonClick"/>
     </LinearLayout>
 
     <!-- Search Button -->
@@ -141,9 +142,9 @@
 
       <ImageView
           android:layout_width="30dp"
-          android:layout_height="31dp"
-          android:src="@drawable/ic_search"
-          android:contentDescription="Search Icon" />
+          android:layout_height="wrap_content"
+          android:contentDescription="Search Icon"
+          android:src="@drawable/ic_search" />
 
       <TextView
           android:id="@+id/btn_search"
@@ -152,7 +153,9 @@
           android:text="Search"
           android:textStyle="bold"
           android:textColor="@android:color/black"
-          android:layout_marginTop="4dp"/>
+          android:layout_marginTop="4dp"
+          android:onClick="onSearchButtonClick"/>
+      />
       <ProgressBar
           android:id="@+id/progressBar"
           android:layout_width="wrap_content"
@@ -161,6 +164,7 @@
           android:visibility="gone" />
     </LinearLayout>
   </LinearLayout>
+
 
 </RelativeLayout>
 

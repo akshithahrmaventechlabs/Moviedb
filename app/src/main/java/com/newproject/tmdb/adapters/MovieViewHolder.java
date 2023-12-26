@@ -16,9 +16,12 @@ import java.util.ArrayList;
 
 public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    TextView title, movie_category, duration;
-    ImageView imageView,starIcon;
-    TextView numericRating;
+    public TextView title;
+    TextView movie_category;
+    TextView duration;
+    public ImageView imageView;
+    public ImageView starIcon;
+    public TextView numericRating;
 
 //    Click Listener
     OnMovieListener onMovieListener;
