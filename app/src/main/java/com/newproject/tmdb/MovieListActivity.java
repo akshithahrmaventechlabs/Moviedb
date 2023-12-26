@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -103,9 +104,8 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     private void ConfigureRecyclerView(){
         movieRecyclerViewAdapter =  new MovieRecyclerView(this);
 
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         recyclerView.setAdapter(movieRecyclerViewAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
 
 
         //RecyclerView Pagination loading next page of api response
@@ -113,7 +113,7 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
         if(!recyclerView.canScrollVertically(1)){
-    //here we need to disply the next search results
+    //here we need to display the next search results
 
             movieListViewModel.searchNextPage();
 

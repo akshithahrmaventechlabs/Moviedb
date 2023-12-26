@@ -13,7 +13,7 @@ import java.util.List;
 public class MovieGridAdapter extends BaseAdapter {
 
     private Context context;
-    private List<Movie> movieList; // Assume you have a Movie class
+    private List<Movie> movieList;
 
     public MovieGridAdapter(Context context, List<Movie> movieList) {
         this.context = context;

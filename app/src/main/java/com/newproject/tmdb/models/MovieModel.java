@@ -10,12 +10,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class MovieModel implements Parcelable {
 
-    //    Model class for movies
+    // Model class for movies
     private String title;
     private String poster_path;
 
     @SerializedName("backdrop_path")
-    private String backdrop_path;
+    private String backdropPath;
     private String release_date;
 
     @SerializedName("id")
@@ -29,11 +29,11 @@ public class MovieModel implements Parcelable {
     @SerializedName("original_language")
     private String original_language;
 
-    //    Constructor
-    public MovieModel(String title, String poster_path, String backdrop_path,String release_date, int movie_id, float vote_average, String movie_overview,
+    // Constructor
+    public MovieModel(String title, String poster_path, String backdropPath, String release_date, int movie_id, float vote_average, String movie_overview,
                       String original_language, int runtime) {
         this.title = title;
-        this.backdrop_path = backdrop_path;
+        this.backdropPath = backdropPath;
         this.poster_path = poster_path;
         this.release_date = release_date;
         this.movie_id = movie_id;
@@ -46,7 +46,7 @@ public class MovieModel implements Parcelable {
     protected MovieModel(Parcel in) {
         title = in.readString();
         poster_path = in.readString();
-        backdrop_path = in.readString();
+        backdropPath = in.readString();
         release_date = in.readString();
         movie_id = in.readInt();
         vote_average = in.readFloat();
@@ -67,7 +67,7 @@ public class MovieModel implements Parcelable {
         }
     };
 
-    //    Getters
+    // Getters
     public String getTitle() {
         return title;
     }
@@ -75,8 +75,9 @@ public class MovieModel implements Parcelable {
     public String getPoster_path() {
         return poster_path;
     }
-    public String getbackdrop_path() {
-        return backdrop_path;
+
+    public String getBackdropPath() {
+        return backdropPath;
     }
 
     public String getRelease_date() {
@@ -112,7 +113,7 @@ public class MovieModel implements Parcelable {
     public void writeToParcel(@NonNull Parcel dest, int flags) {
         dest.writeString(title);
         dest.writeString(poster_path);
-        dest.writeString( backdrop_path);
+        dest.writeString(backdropPath);
         dest.writeString(release_date);
         dest.writeInt(movie_id);
         dest.writeInt(runtime);
@@ -121,14 +122,12 @@ public class MovieModel implements Parcelable {
         dest.writeString(original_language);
     }
 
-
     @Override
     public String toString() {
         return "MovieModel{" +
                 "title='" + title + '\'' +
                 ", poster_path='" + poster_path + '\'' +
-                ", backdrop_path='" + backdrop_path + '\'' +
-
+                ", backdropPath='" + backdropPath + '\'' +
                 ", release_date='" + release_date + '\'' +
                 ", movie_id=" + movie_id +
                 ", vote_average=" + vote_average +
@@ -137,5 +136,4 @@ public class MovieModel implements Parcelable {
                 ", original_language='" + original_language + '\'' +
                 '}';
     }
-
 }
