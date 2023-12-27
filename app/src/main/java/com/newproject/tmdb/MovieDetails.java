@@ -15,7 +15,7 @@ import com.newproject.tmdb.models.MovieModel;
 public class MovieDetails extends AppCompatActivity {
     private ImageView imageViewDetails;
     private TextView movieTitleTextView, movieDurationTextView, movieLanguageTextView,
-            movieOverviewTextView, movieReleaseDateTextView, movieVoteAverageTextView,movieRatingTextView;
+            movieOverviewTextView, movieReleaseDateTextView;
 
     private RatingBar ratingBar;
 
@@ -30,27 +30,21 @@ public class MovieDetails extends AppCompatActivity {
         ratingBar = findViewById(R.id.rating_bar);
         movieDurationTextView = findViewById(R.id.movieDurationTextView);
         movieLanguageTextView = findViewById(R.id.movieLanguageTextView);
-//        movieRatingTextView = findViewById(R.id.movieRatingTextView);
         movieOverviewTextView = findViewById(R.id.movieOverviewTextView);
         movieReleaseDateTextView = findViewById(R.id.movieReleaseDateTextView);
-//        movieVoteAverageTextView = findViewById(R.id.movieVoteAverageTextView);
-
 
         // Get data from Intent
         getDataFromIntent();
     }
 
-        public void onHomeButtonClick(View view) {
+    public void onHomeButtonClick(View view) {
         Intent intent = new Intent(this, MovieListActivity.class);
         startActivity(intent);
     }
 
-
-
     private void getDataFromIntent() {
         if (getIntent().hasExtra("movie")) {
             MovieModel movieModel = getIntent().getParcelableExtra("movie");
-
 
             // Set values to views
             movieTitleTextView.setText("TITLE:"+" "+ movieModel.getTitle());
@@ -58,7 +52,11 @@ public class MovieDetails extends AppCompatActivity {
             movieLanguageTextView.setText("LANGUAGE:"+" " +movieModel.getOriginal_language());
             movieOverviewTextView.setText("OVERVIEW:"+" " +movieModel.getMovie_overview());
             movieReleaseDateTextView.setText("RELEASE_DATE:"+" " +movieModel.getRelease_date());
-            ratingBar.setRating(movieModel.getVote_average() / 2);
+
+            // Set the original rating without dividing by 2
+            ratingBar.setRating((float) movieModel.getVote_average());
+
+            ratingBar.setIsIndicator(true);
 
             // Load image using Glide
             Glide.with(this)
@@ -66,8 +64,6 @@ public class MovieDetails extends AppCompatActivity {
                     .into(imageViewDetails);
         }
     }
-
-
 }
 
 
